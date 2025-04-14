@@ -69,7 +69,7 @@ class strlin:
 match loadData('firstrun'):
     case 'false':
         print(f'Reynard  Copyright (C) 2025  CosmicJester\nThis program comes with ABSOLUTELY NO WARRANTY; for details type \'show w\'.\nThis is free software, and you are welcome to redistribute it\nunder certain conditions; type \'show c\' for details.\n')
-        print(f'To preface: All inputs must be typed to the letter, but are case insensitive. There\'s no error correction here yet, and probably never will be.\nDate of birth is set up with the base point of December 31, 2024.\n\nThis is just a notice, and will only show up on the first run per user account.\n(Persistent data is stored in "{perspath}".)\n')
+        print(f'To preface: All inputs must be typed to the letter, but are case insensitive. There\'s no error correction here yet, and probably never will be.\nDate of birth is set up with the base point of December 31, 2024.\nI\'m not here claiming that everything output by this will be ready to use immediately if you want anything with substance.\nI can\'t do everything for you and I can\'t provide a preset list of backgrounds, medical history, usernames, and relationships.\nThis isn\'t an end-all do-all, it\'s an aid.\n\nThis is just a notice, and will only show up on the first run per user account.\n(Persistent data is stored in "{perspath}".)\n')
         try:
             persDBFile = open(f'{perspath}reynardFirstRun', 'ab')
         except FileNotFoundError: # If the directory doesn't exist,
@@ -262,7 +262,7 @@ try:
     match gen_type.lower():
         case 'all'|'everything'|'all of it'|'1':
             while True: # Fur initialization
-                furint = input('First, are non-humans cool with you?\n\n1. Yes\n2. No\n3. Exit\n')
+                furint = input('Non-human species alright?\n\n1. Yes\n2. No\n3. Exit\n')
                 if furint in ('3', 'exit', 'e'):
                     print(strlin.GENEXT)
                     quit(0)
@@ -275,7 +275,7 @@ try:
                             print(strlin.SELFAL)
                             continue
             while True: # Age range initialization
-                ageint = input('Next, what age would you like?\n\n1. Child\n2. Teen\n3. Young Adult\n4. Adult\n5. Old\n6. Immortal/Abnormal\n7. Any\n8. Exit\n')
+                ageint = input('What age range?\n\n1. Child (8-12)\n2. Teen (13-17)\n3. Young Adult (18-35)\n4. Adult (36-64)\n5. Old (65-120)\n6. Immortal/Abnormal (18-500)\n7. Any (8-120)\n8. Exit\n') # yea I'm classing 35 as 'young adult', fight me
                 if ageint in ('8', 'exit', 'e'):
                     print(strlin.GENEXT)
                     quit(0)
@@ -288,7 +288,7 @@ try:
                             print(strlin.SELFAL)
                             continue
             while True: # Gender initialization
-                nonstand_gender = input('Next, are you alright with non-binary gender options?\n\n1. Yes\n2. No\n')
+                nonstand_gender = input('Non-binary gender options (non-binary, trans)?\n\n1. Yes\n2. No\n')
                 gender_bool = kit.bool_map.get(nonstand_gender.strip().lower(), True)
                 match gender_bool:
                     case True|False:                        
@@ -297,7 +297,7 @@ try:
                         print(strlin.SELFAL)
                         continue
             while True: # Hair color initialization
-                unnatur_hair = input('Next, are you alright with unnatural hair colors (typically dyed)?\n\n1. Yes\n2. No\n')
+                unnatur_hair = input('Non-standard hair colors?\n\n1. Yes\n2. No\n')
                 haircolor_bool = kit.bool_map.get(unnatur_hair.strip().lower(), True)
                 match haircolor_bool:
                     case True|False:
@@ -306,7 +306,7 @@ try:
                         print(strlin.SELFAL)
                         continue
             while True: # Format initialization
-                templint = input('Next, what format would you like?\n\n1. Basic\n2. Formatted\n3. Full\n4. Blank Basic\n5. Blank Formatted\n6. Blank Full\n7. Exit\n')
+                templint = input('What output format?\n\n1. Basic\n2. Formatted\n3. Full\n4. Blank Basic\n5. Blank Formatted\n6. Blank Full\n7. Exit\n')
                 chosen_template = kit.format_map.get(templint.strip().lower(), 'basic')
                 match chosen_template:
                     case 'basic'|'formatted'|'full'|'blank basic'|'blank formatted'|'blank full':
@@ -323,9 +323,9 @@ try:
                         species_sel = kit.speciesGen(fur_bool)
                         match species_sel.lower():
                             case 'human'|'robot'|'demon'|'angel'|'elf':
-                                skin_color = f'{kit.skinGen(fur_bool)} skin'
+                                skin_color = f'{kit.skinGen(fur_bool).lower()} skin'
                             case _:
-                                skin_color = f'{kit.furGen()} fur'
+                                skin_color = f'{kit.furGen().lower()} fur'
                         eye_color = f'{kit.eyeGen()} eyes'
                         hat_sel = kit.massGen('hat')
                         match hat_sel.lower():
@@ -552,7 +552,7 @@ Misc. Info: ''', file=outfile)
             print(kit.genderGen(gender_nonstand), file=outfile)
         case 'species'|'race':
             while True:
-                furinst = input("Furries or no?\n\n1. Yes\n2. No\n")
+                furinst = input("Non-human species alright?\n\n1. Yes\n2. No\n")
                 furpillow = kit.bool_map.get(furinst.strip().lower(), True)
                 match furpillow:
                     case True|False:
@@ -563,7 +563,7 @@ Misc. Info: ''', file=outfile)
             print(kit.speciesGen(furpillow), file=outfile)
         case 'age':
             while True:
-                ageint = input('Next, what age would you like?\n\n1. Child\n2. Teen\n3. Young Adult\n4. Adult\n5. Old\n6. Immortal/Abnormal\n7. Any\n8. Exit\n')
+                ageint = input('What age range?\n\n1. Child (8-12)\n2. Teen (13-17)\n3. Young Adult (18-35)\n4. Adult (36-64)\n5. Old (65-120)\n6. Immortal/Abnormal (18-500)\n7. Any (8-120)\n8. Exit\n')
                 if ageint in ('8', 'exit', 'e'):
                     print(strlin.GENEXT)
                     quit(0)
