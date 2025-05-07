@@ -65,7 +65,7 @@ class strlin:
     SELFAL = 'Invalid option.'
     GENFAL = 'Failed.'
 
-# Hey hey hey, folks! This is my goofy, funky, really fuckin' cool main generator script! I'm losing my mental sanity!
+# Hey hey hey, folks! This is my goofy, funky, really cool main generator script! I'm losing my mental sanity!
 match loadData('firstrun'):
     case 'false':
         print(f'Reynard  Copyright (C) 2025  CosmicJester\nThis program comes with ABSOLUTELY NO WARRANTY; for details type \'show w\'.\nThis is free software, and you are welcome to redistribute it\nunder certain conditions; type \'show c\' for details.\n')
@@ -246,9 +246,9 @@ except:
             print(strlin.KEYINT)
             quit(0)
 
-# Because collectively, we can't get our shit in order and working.
+# Because collectively, we can't get our stuff in order and working.
 # PYTHON. TELL ME WHY 'OUTPUT_TOFILE' IS UNBOUND. *TELL ME WHY.*
-# IT'S A SIMPLE FUCKING BOOLEAN. WHY DO I NEED A FUNCTION TO DO YOUR JOB FOR YOU.
+# IT'S A SIMPLE BOOLEAN. WHY DO I NEED A FUNCTION TO DO YOUR JOB FOR YOU.
 
 # There used to be a function here to set OUTPUT_TOFILE to True, because it kept throwing NameError. Turns out, the problem was that I didn't have the 'if' statement set it to False when the input said no. I'm leaving those comments there because one, funny, and two, it's historical.
 ## LMAO THE PROBLEM WASN'T THAT, IT WAS THE LACK OF DEFAULT VARIABLES :P
